@@ -1,0 +1,9 @@
+xgboost
+scikit-learn
+pandas
+numpy
+pyinstaller
+joblib
+customtkinter>=5.2.0
+pdfplumber
+fpdf2

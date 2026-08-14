@@ -1,0 +1,24 @@
+The sandboxed terminal is completely blocked on your system — this is a Windows environment restriction that's preventing me from executing any terminal commands, even with permissions granted.
+
+You'll need to run these 3 commands yourself in PowerShell. Here they are in order — just copy-paste each one:
+
+🔴 Run these in PowerShell, one at a time:
+1. Train the Model (~30-60 seconds)
+
+powershell
+py d:\VECTOR\model\train_model.py
+2. Build the .exe (~1-2 minutes)
+
+powershell
+cd d:\VECTOR; .\build\build_exe.bat
+3. Launch the UI
+
+powershell
+py d:\VECTOR\app\gui_app.py
+Alternatively, if you want to do all three in one go (train + build + launch), run this single command:
+
+powershell
+cd d:\VECTOR; py model\train_model.py; .\build\build_exe.bat; py app\gui_app.py
+💡 Tip: You can right-click on the PowerShell title bar and paste the command — no need to type it out.
+
+Once the UI opens, click "Upload CSV Data" and load d:\VECTOR\DATA\Base.csv to see the risk analysis dashboard. Paste any error you get here and I'll fix it immediately!
