@@ -8,6 +8,7 @@
 ## Models Used in the Project
 The core intelligence of the application is powered by Machine Learning:
 - **XGBoost (Extreme Gradient Boosting)**: The primary classification model used to predict risk and fraud. It is highly efficient and capable of handling non-linear relationships in behavioral data.
+- **SHAP (SHapley Additive exPlanations)**: A game-theory-based explainability framework that computes per-prediction feature contributions using Shapley values. Integrated via `shap.TreeExplainer` for fast, exact explanations of XGBoost predictions.
 - **Scikit-Learn**: Used for model training utilities, data preprocessing, and evaluation metrics (Accuracy, Precision, Recall).
 - **Joblib**: Used for saving and loading the trained model efficiently (`risk_model.pkl`).
 
@@ -16,7 +17,7 @@ The core intelligence of the application is powered by Machine Learning:
 ## Key Features
 1. **Desktop GUI**: A user-friendly interface built using Python's Tkinter / CustomTkinter. It allows users to interact with the ML model without touching any code.
 2. **CSV Data Upload**: Users can easily upload datasets (e.g., `Base.csv`, `Variant I.csv`) directly into the app for batch risk scoring.
-3. **Explainable AI**: The results table not only provides a Risk Score and Risk Category (Low / Medium / High) but also highlights the **key signals driving the risk score** for explainability.
+3. **Explainable AI (SHAP)**: The results table not only provides a Risk Score and Risk Category (Low / Medium / High) but also highlights the **key signals driving the risk score** using **SHAP (SHapley Additive exPlanations)**. For each prediction, SHAP values are computed via `TreeExplainer` to identify the top 3 features contributing to the risk score, along with their direction and magnitude (e.g., "High 6-Hour Velocity (+0.32)"). This provides mathematically exact, per-prediction explanations rather than static rules.
 4. **Data Export**: Scored data and risk assessments can be exported to a new CSV file for reporting and further analysis.
 5. **Standalone Executable**: The entire application, including the Python runtime and ML models, can be packaged into a single, portable Windows `.exe` file using PyInstaller. No Python installation is required for the end user.
 6. **Advanced Feature Engineering**: The system calculates dynamic metrics over time, such as:

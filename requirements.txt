@@ -7,3 +7,4 @@ joblib
 customtkinter>=5.2.0
 pdfplumber
 fpdf2
+shap
